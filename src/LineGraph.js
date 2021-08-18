@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react'
-import {Line} from "react-chartjs-2"
-import numeral from 'numeral'
+import React,{useState,useEffect} from 'react';
+import {Line} from "react-chartjs-2";
+import numeral from 'numeral';
 
 // https://disease.sh/v3/covid-19/historical/all?lastdays=30
 
@@ -9,7 +9,8 @@ const options = {
         display: false,
     },
     elements:{
-        point:{radius:0,
+        point:{
+            radius:0,
         },
 
     },
@@ -30,10 +31,7 @@ const options = {
                 format: "MM/DD/YY",
                 tooltipFormat: 'll'
             },
-            scaleLabel: {
-                display:     true,
-                labelString: 'Date'
-            }
+       
         }],
         yAxes: [{
             gridLines:{
@@ -48,12 +46,12 @@ const options = {
     }
 }
 
-function LineGraph() {
+function LineGraph({casesType = 'cases'}) {
     const [data,setData] = useState({})
     useEffect(() => {
         const fetchData =  async() => {
 
-            await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=30')
+            await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=80')
             .then((response) => {
                 return response.json();
             })
@@ -67,7 +65,7 @@ function LineGraph() {
     };
     fetchData();
 
-    }, []);
+    }, [casesType]);
 
     const builChartData = (data,casesType="cases") => {
         const chartData = [];
@@ -89,6 +87,7 @@ function LineGraph() {
     }
     return (
         <div>
+            {/* optionalchaining */}
             {data?.length>0 && (
             <Line
                 options = {options}

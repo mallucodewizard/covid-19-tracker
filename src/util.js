@@ -16,3 +16,7 @@ export const sortData = (data) => {
     
 
 };
+
+// export const showDatanMap = (data,casesType='cases')=> (
+//     data.map(country => ())
+// )
