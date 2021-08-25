@@ -19,10 +19,21 @@ body{
   justify-content: space-evenly;
   padding: 20px;
 }
+.app__header > h1{
+  color:firebrick;
+}
 
 .app__stats{
   display: flex;
   justify-content: space-between;
+}
+
+.app__dropdown{
+  background-color: white;
+}
+
+.app__graphTitle{
+margin-top: 20px;
 }
 
 /* media query while screen lowers and hit the breakpoint of 990px do the conditions */

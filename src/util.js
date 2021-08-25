@@ -43,6 +43,11 @@ export const sortData = (data) => {
 
 };
 
+
+//format cases data
+export const prettyPrintStat = (stat) =>
+stat ? `+${numeral(stat).format("0.0a")}` :"+0";
+
 // Draw circles in countries to rep corona virus
 export const showDatanMap = (data,casesType='cases')=> (
     
